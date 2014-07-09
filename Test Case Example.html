@@ -19,33 +19,43 @@
 <!--Change variables-->
 <tr>
 	<td>storeExpression</td>
-	<td>101</td>
+	<td>111</td>
 	<td>tcOrderSum</td>
 </tr>
 <tr>
 	<td>storeExpression</td>
-	<td>51</td>
+	<td>61</td>
 	<td>tcOrderPrice</td>
 </tr>
-<!--Change locators for Days and Checkpoints-->
+<tr>
+	<td>storeExpression</td>
+	<td>пятница</td>
+	<td>tcDay</td>
+</tr>
+<tr>
+	<td>storeExpression</td>
+	<td>*${tcDay}*салат мистерия весны*капуста жареная*хлеб*Списано с личного счета*${tcOrderPrice}*р.</td>
+	<td>tcHistory</td>
+</tr>
 <tr>
 	<td>select</td>
 	<td>id=days</td>
-	<td>label=четверг</td>
+	<td>label=${tcDay}</td>
 </tr>
+<!--Change locators for Days and Checkpoints-->
 <tr>
 	<td>click</td>
-	<td>//div[@id='menu']/div[@key='4']/div[1]/input</td>
+	<td>//div[@id='menu']/div[@key='5']/div[1]/input</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='menu']/div[@key='4']/div[3]/input</td>
+	<td>//div[@id='menu']/div[@key='5']/div[4]/input</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>//div[@id='menu']/div[@key='4']/div[4]/input</td>
+	<td>//div[@id='menu']/div[@key='5']/div[5]/input</td>
 	<td></td>
 </tr>
 <tr>
@@ -98,11 +108,10 @@
 	<td>Sum before order=${sumBefore}; Sum after order=${sumAfter}; Order sum=${orderSum} and must be ${tcOrderSum}; Sum after discount = ${theRealOrderPrice} and it must be ${tcOrderPrice}</td>
 	<td></td>
 </tr>
-<!--Change text for history-->
 <tr>
 	<td>verifyText</td>
 	<td>//ol[@id='history']/li[last()]</td>
-	<td>четверг*салат 'не простой'*жаркое в горшочках*хлеб*Списано с личного счета*${tcOrderPrice}*р.</td>
+	<td>${tcHistory}</td>
 </tr>
 <tr>
 	<td>storeEval</td>
