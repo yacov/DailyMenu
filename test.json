@@ -1,0 +1,60 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://kontur.ru/Files/userfiles/file/edu/Stagirovka%202012/test/default.html"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "css selector",
+        "value": "html"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div/h4/select//option[3]"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[2]/div[1]/input"
+      }
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[2]/div[2]/input"
+      }
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "182"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "id",
+        "value": "makeOrder"
+      }
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "среда*каша пшеная*борщ*Списано с личного счета 132 р."
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}
