@@ -1,0 +1,159 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "http://kontur.ru/Files/userfiles/file/edu/Stagirovka%202012/test/default.html"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "link text",
+        "value": "Начать заново"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div/h4/select//option[2]"
+      }
+    },
+    {
+      "type": "store",
+      "text": "381",
+      "variable": "tcOrderSum"
+    },
+    {
+      "type": "store",
+      "text": "331",
+      "variable": "tcOrderPrice"
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[@key='2']/div[2]/input"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[@key='2']/div[3]/input"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[@key='2']/div[4]/input"
+      }
+    },
+    {
+      "type": "verifyText",
+      "locator": {
+        "type": "id",
+        "value": "orderSum"
+      },
+      "text": "${tcOrderSum}"
+    },
+    {
+      "type": "storeText",
+      "locator": {
+        "type": "id",
+        "value": "orderSum"
+      },
+      "variable": "orderSum"
+    },
+    {
+      "type": "storeText",
+      "locator": {
+        "type": "id",
+        "value": "account"
+      },
+      "variable": "sumBefore"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "id",
+        "value": "makeOrder"
+      }
+    },
+    {
+      "type": "storeText",
+      "locator": {
+        "type": "id",
+        "value": "account"
+      },
+      "variable": "sumAfter"
+    },
+    {
+      "type": "storeEval",
+      "script": "storedVars[\"sumBefore\"].replace(/ /g,\"\")",
+      "variable": "sumBefore"
+    },
+    {
+      "type": "storeEval",
+      "script": "storedVars[\"sumAfter\"].replace(/ /g,\"\")",
+      "variable": "sumAfter"
+    },
+    {
+      "type": "storeEval",
+      "script": "storedVars[\"sumBefore\"]-storedVars[\"sumAfter\"]",
+      "variable": "theRealOrderPrice"
+    },
+    {
+      "type": "verifyEval",
+      "script": "storedVars[\"theRealOrderPrice\"]==storedVars[\"tcOrderPrice\"]",
+      "value": "true"
+    },
+    {
+      "type": "print",
+      "text": "Sum before order=${sumBefore}; Sum after order=${sumAfter}; Order sum=${orderSum} and must be ${tcOrderSum}; Sum after discount = ${theRealOrderPrice} and it must be ${tcOrderPrice}"
+    },
+    {
+      "type": "verifyText",
+      "locator": {
+        "type": "xpath",
+        "value": "//ol[@id='history']/li[last()]"
+      },
+      "text": "вторник*суп-пюре из брокколи*рагу из свинины*хлеб*Списано с личного счета*${tcOrderPrice}*р."
+    },
+    {
+      "type": "storeEval",
+      "script": "storedVars[\"sumBefore\"]-storedVars[\"theRealOrderPrice\"]",
+      "variable": "sumAfterForVerify"
+    },
+    {
+      "type": "verifyText",
+      "locator": {
+        "type": "id",
+        "value": "account"
+      },
+      "text": "${sumAfterForVerify}"
+    },
+    {
+      "type": "storeEval",
+      "script": "storedVars[\"sumBefore\"]-storedVars[\"tcOrderPrice\"]",
+      "variable": "realSumAfter"
+    },
+    {
+      "type": "verifyText",
+      "locator": {
+        "type": "id",
+        "value": "account"
+      },
+      "text": "${realSumAfter}"
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}

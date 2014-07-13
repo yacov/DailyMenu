@@ -1,0 +1,85 @@
+{
+  "type": "script",
+  "seleniumVersion": "2",
+  "formatVersion": 2,
+  "steps": [
+    {
+      "type": "get",
+      "url": "https://kontur.ru/Files/userfiles/file/edu/Stagirovka%202012/test/default.html"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "css selector",
+        "value": "div"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div/h4/select//option[6]"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[2]/div[1]/input"
+      }
+    },
+    {
+      "type": "setElementSelected",
+      "locator": {
+        "type": "xpath",
+        "value": "//div[@id='menu']/div[2]/div[4]/input"
+      }
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "id",
+        "value": "account"
+      }
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "css selector",
+        "value": "div"
+      }
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "15 456.45"
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "51"
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "css selector",
+        "value": "div"
+      }
+    },
+    {
+      "type": "clickElement",
+      "locator": {
+        "type": "id",
+        "value": "makeOrder"
+      }
+    },
+    {
+      "type": "verifyTextPresent",
+      "text": "суббота, 16:09:15: каша кукурузная, хлеб. Списано с личного счета 1 р."
+    }
+  ],
+  "data": {
+    "configs": {},
+    "source": "none"
+  },
+  "inputs": [],
+  "timeoutSeconds": 60
+}
