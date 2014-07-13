@@ -89,13 +89,18 @@
 	<td>theRealOrderPrice</td>
 </tr>
 <tr>
-	<td>verifyEval</td>
-	<td>storedVars[&quot;theRealOrderPrice&quot;]=='32.54'</td>
-	<td>true</td>
+	<td>storeEval</td>
+	<td>storedVars['theRealOrderPrice'].toFixed(2)</td>
+	<td>theRealOrderPriceRound</td>
 </tr>
 <tr>
 	<td>echo</td>
-	<td>Sum before order=${sumBefore}; Sum after order=${sumAfter}; Order sum=${orderSum} and must be ${tcOrderSum}; Sum after discount = ${theRealOrderPrice} and it must be 33.54</td>
+	<td>Сумма заказа с учетом скидки = ${theRealOrderPriceRound}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>Sum before order=${sumBefore}; Sum after order=${sumAfter}; Order sum=${orderSum} and must be ${tcOrderSum}; Sum after discount = ${theRealOrderPriceRound}</td>
 	<td></td>
 </tr>
 <tr>
@@ -105,7 +110,7 @@
 </tr>
 <tr>
 	<td>storeEval</td>
-	<td>storedVars[&quot;sumBefore&quot;]-storedVars[&quot;theRealOrderPrice&quot;]</td>
+	<td>storedVars[&quot;sumBefore&quot;]-storedVars[&quot;theRealOrderPriceRound&quot;]</td>
 	<td>sumAfterForVerify</td>
 </tr>
 <tr>
@@ -115,7 +120,7 @@
 </tr>
 <tr>
 	<td>storeEval</td>
-	<td>storedVars[&quot;sumBefore&quot;]-storedVars[&quot;theRealOrderPrice&quot;]</td>
+	<td>storedVars[&quot;sumBefore&quot;]-storedVars[&quot;theRealOrderPriceRound&quot;]</td>
 	<td>realSumAfter</td>
 </tr>
 <tr>
