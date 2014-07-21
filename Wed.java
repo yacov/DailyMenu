@@ -73,4 +73,11 @@ public class Wed {
       acceptNextAlert = true;
     }
   }
+  
+  private void checkMeals() {
+	driver.findElement(By.xpath("//div[@id='menu']/div[@key='3']/div[1]/input")).click();
+    driver.findElement(By.xpath("//div[@id='menu']/div[@key='3']/div[2]/input")).click();
+    driver.findElement(By.xpath("//div[@id='menu']/div[@key='3']/div[3]/input")).click();
+}
+
 }
